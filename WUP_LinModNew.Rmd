@@ -42,7 +42,7 @@ For each model, we will predict sim for arm=88, grip=94
 # Methods 
 We have numerical responses (sim score) and numerical explanatory variables (arm and grip strength)
 
-## Model 1 SIM~ARMS
+## Model 1 SIM~ARM
 
 ### scatterplot
 ```{r}
@@ -53,8 +53,15 @@ There is a positive relationship between SIMS and ARM. If this ws a perfect line
 
 ### Numerical results
 
+```{r}
+cor(SIMS~ARM,data=data)
+```
+
+This summarizes the correlation between ARM strength and the SIMS score.
 
 ### Inferential  (Build model.1)
+
+
 
 #### Predict at target point
 
