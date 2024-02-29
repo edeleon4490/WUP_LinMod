@@ -45,6 +45,11 @@ We have numerical responses (sim score) and numerical explanatory variables (arm
 ## Model 1 SIM~ARMS
 
 ### scatterplot
+```{r}
+plot(SIMS~ARM,data=data)
+```
+
+There is a positive relationship between SIMS and ARM. If this ws a perfect linear relationship, they would be on a straight line. In this case, they are not on a straight line, so the correlation maybe about 0.8.
 
 ### Numerical results
 
