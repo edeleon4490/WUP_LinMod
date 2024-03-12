@@ -90,14 +90,37 @@ This is a scatter plot with a function on it, at ARM strength 88, the 95 percent
 
 ### Now add in scatterplot
 
+```{r}
+plot(SIMS~GRIP,data=data)
+```
+
+There is a positive relationship between SIMS and GRIP. If this ws a perfect linear relationship, they would be on a straight line. In this case, they are not on a straight line, so the correlation maybe about 0.8.
 
 ### Numerical results 
 
+```{r}
+cor(SIMS~GRIP,data=data)
+```
+
+This summarizes the correlation between GRIP strength and the SIMS score.
 
 ### Inferential  (Build model.2)
-  
+
+```{r}
+model.2 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.2)
+```  
+
+The P-value for the coefficient of ARM is 0.0000000000000002.
 
 #### predict model.2 at target point
+
+```{r}
+SIMSpredict=predict.lm(model.2,newdata=data.frame(ARM=88,GRIP=94), interval = "confidence")
+print(SIMSpredict)
+```
+
+The prediction for ARM=88, GRIP=94 is -0.54
 
 #### now add the model fit to our plot for model.2
   
@@ -142,7 +165,21 @@ predict.lm(model.3, newPoint, interval = 'prediction')
 ## Comparing nested models ANOVA Test
 
 ### Model.1 vs Model.3
+
+```{r}
+anova(model.1,model.3)
+```
+
+p-value is 0.000004994 which is less than 0.05 so we can concluded that model 3 is better than model.1
+
 ### Model.2 vs Model.3
+
+```{r}
+anova(model.2,model.3)
+```
 
 ## Informally compare Model.1 with model.2
 
+```{r}
+anova(model.1,model.2)
+```
