@@ -107,12 +107,37 @@ This is a scatter plot with a function on it, at ARM strength 88, the 95 percent
 
 ### Numerical results (cor)
 
-`
+```{r}
+m = data.frame(data["GRIP"],data["ARM"],data["SIMS"])
+cor(m)
+```
+
+The table shows that the SIMS correlates with GRIP in a positive manner (0.64) and SIMS correlates with ARM also in a positive manner (0.69). This says these variables are useful in predicting SIMS.
+
+```{r}
+plot(data$GRIP,data$ARM)
+```
+
+Plot shows GRIP and Arm are not independent, so this is not necessarily a good model.
   
 ### Inferential  (Build 2-dimentional model.3)
 
+```{r}
+model.3 = lm(SIMS~GRIP+ARM,data = data)
+print(summary.lm(model.3))
+newPoint = data.frame(GRIP=94,ARM=88)
+predict.lm(model.3, newPoint, interval = 'prediction')
+```
+
+The 95% confidence interval is SIMS is between -2.13 and 2.43. Since this interval contains 0, we do not have a very good prediction for SIMS. 
+
 #### predict model.3 at target point
   
+```{r}
+newPoint = data.frame(GRIP=94,ARM=88)
+predict.lm(model.3, newPoint, interval = 'prediction')
+```
+
 
 ## Comparing nested models ANOVA Test
 
