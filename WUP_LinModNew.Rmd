@@ -170,16 +170,15 @@ predict.lm(model.3, newPoint, interval = 'prediction')
 anova(model.1,model.3)
 ```
 
-p-value is 0.000004994 which is less than 0.05 so we can concluded that model 3 is better than model.1
+p-value is 0.000004994 which is less than 0.05 so we can concluded that model.3 is better than model.1
 
 ### Model.2 vs Model.3
 
 ```{r}
 anova(model.2,model.3)
 ```
+p-value is 0.000000001495 which is less than 0.05, so we can concluded that model.2 is better than model.3.
 
-## Informally compare Model.1 with model.2
+## Informally compare model.1 with model.2
 
-```{r}
-anova(model.1,model.2)
-```
+Since model.3 is better than model.1 and model.2 is better than model.3, then we can conclude that model.2 is better then model.1
